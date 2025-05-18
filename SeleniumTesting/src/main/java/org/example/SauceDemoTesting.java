@@ -13,7 +13,6 @@ public class SauceDemoTesting {
         driver.get("https://www.saucedemo.com");
         driver.manage().window().maximize();
         Thread.sleep(3000);
-        //driver.close();
     }
 
     public void login() throws InterruptedException {
@@ -21,6 +20,32 @@ public class SauceDemoTesting {
         driver.findElement(By.id("password")).sendKeys("secret_sauce");
         driver.findElement(By.id("login-button")).click();
         Thread.sleep(3000);
+    }
+
+    public void selectBackpack() throws InterruptedException {
+        driver.findElement(By.id("item_4_title_link")).click();
+        Thread.sleep(3000);
+        driver.findElement(By.id("back-to-products")).click();
+        Thread.sleep(3000);
+    }
+
+    public void selectCheckout() throws InterruptedException {
+        driver.findElement(By.id("shopping_cart_container")).click();
+        Thread.sleep(3000);
+        driver.findElement(By.id("checkout")).click();
+        Thread.sleep(3000);
+    }
+
+    public void fillCheckoutForm() throws InterruptedException {
+        driver.findElement(By.id("first-name")).sendKeys("Tamjid");
+        driver.findElement(By.id("last-name")).sendKeys("Islam");
+        driver.findElement(By.id("postal-code")).sendKeys("1207");
+        Thread.sleep(2000);
+        driver.findElement(By.id("continue")).click();
+        Thread.sleep(2000);
+    }
+
+    public void exit() throws InterruptedException {
         driver.close();
     }
 }
