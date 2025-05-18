@@ -16,8 +16,9 @@ public class SauceDemoTesting {
         return options;
     }
 
-    public void setDriver() {
+    public WebDriver setDriver() {
         driver = new ChromeDriver(getIncognitoMode());
+        return driver;
     }
 
     public void loadWebsite() throws InterruptedException {
@@ -26,17 +27,15 @@ public class SauceDemoTesting {
         Thread.sleep(3000);
     }
 
-    public void login() throws InterruptedException {
-        driver.findElement(By.id("user-name")).sendKeys("standard_user");
-        driver.findElement(By.id("password")).sendKeys("secret_sauce");
+    public void login(String username, String password) throws InterruptedException {
+        driver.findElement(By.xpath(".//*[@id = 'user-name']")).sendKeys(username);
+        driver.findElement(By.id("password")).sendKeys(password);
         driver.findElement(By.id("login-button")).click();
         Thread.sleep(3000);
     }
 
     public void selectBackpack() throws InterruptedException {
         driver.findElement(By.id("item_4_title_link")).click();
-        Thread.sleep(3000);
-        driver.findElement(By.id("back-to-products")).click();
         Thread.sleep(3000);
     }
 
@@ -48,8 +47,8 @@ public class SauceDemoTesting {
     }
 
     public void fillCheckoutForm() throws InterruptedException {
-        driver.findElement(By.id("first-name")).sendKeys("Tamjid");
-        driver.findElement(By.id("last-name")).sendKeys("Islam");
+        driver.findElement(By.id("first-name")).sendKeys("jid");
+        driver.findElement(By.id("last-name")).sendKeys("lam");
         driver.findElement(By.id("postal-code")).sendKeys("1207");
         Thread.sleep(2000);
         driver.findElement(By.id("continue")).click();
