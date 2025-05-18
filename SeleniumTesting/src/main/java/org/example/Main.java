@@ -10,6 +10,7 @@ public class Main {
         System.setProperty("webdriver.chrome.driver", "C:\\Browser Driver\\chromedriver.exe");
         
         SauceDemoTesting testing = new SauceDemoTesting();
+        testing.setDriver();
         testing.loadWebsite();
         testing.login();
         testing.selectBackpack();

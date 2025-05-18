@@ -16,8 +16,11 @@ public class SauceDemoTesting {
         return options;
     }
 
-    public void loadWebsite() throws InterruptedException {
+    public void setDriver() {
         driver = new ChromeDriver(getIncognitoMode());
+    }
+
+    public void loadWebsite() throws InterruptedException {
         driver.get("https://www.saucedemo.com");
         driver.manage().window().maximize();
         Thread.sleep(3000);
