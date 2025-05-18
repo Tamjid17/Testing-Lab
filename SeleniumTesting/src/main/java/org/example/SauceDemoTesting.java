@@ -3,13 +3,21 @@ package org.example;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 
 public class SauceDemoTesting {
 
     WebDriver driver;
+    ChromeOptions options;
+
+    public ChromeOptions getIncognitoMode() {
+        options = new ChromeOptions();
+        options.addArguments("--incognito");
+        return options;
+    }
 
     public void loadWebsite() throws InterruptedException {
-        driver = new ChromeDriver();
+        driver = new ChromeDriver(getIncognitoMode());
         driver.get("https://www.saucedemo.com");
         driver.manage().window().maximize();
         Thread.sleep(3000);
