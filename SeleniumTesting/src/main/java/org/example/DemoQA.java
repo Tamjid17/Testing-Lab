@@ -86,16 +86,13 @@ public class DemoQA {
     }
 
     public void fillSubjects(List<String> subjects) throws InterruptedException {
-        WebElement subjectInput = driver.findElement(By.id("subjectsInput")); // Adjust ID if different
+        WebElement subjectInput = driver.findElement(By.id("subjectsInput"));
 
         for (String subject : subjects) {
             subjectInput.sendKeys(subject);
-            Thread.sleep(1000); // Wait for suggestions to appear
+            Thread.sleep(1000);
             subjectInput.sendKeys(Keys.ARROW_DOWN);
-            // Press ENTER to select the first suggestion
             subjectInput.sendKeys(Keys.ENTER);
-
-            // Optional short pause between inputs
             Thread.sleep(500);
         }
     }
